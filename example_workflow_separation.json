@@ -1,0 +1,80 @@
+{
+  "last_node_id": 3,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "VoiceBackgroundSeparator",
+      "pos": [200, 180],
+      "size": [440, 300],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "voice_path", "type": "STRING", "links": null },
+        { "name": "status", "type": "STRING", "links": null }
+      ],
+      "properties": { "Node name for S&R": "VoiceBackgroundSeparator" },
+      "widgets_values": [
+        "C:/videos/lecture.mp4",
+        "htdemucs_ft",
+        "auto",
+        "flac",
+        "",
+        "skip existing"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "SubtitleAudioSlicer",
+      "pos": [200, 560],
+      "size": [440, 440],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "output_folder", "type": "STRING", "links": null },
+        { "name": "segment_list", "type": "STRING", "links": null },
+        { "name": "segment_count", "type": "INT", "links": null }
+      ],
+      "properties": { "Node name for S&R": "SubtitleAudioSlicer" },
+      "widgets_values": [
+        "C:/videos/lecture.mp4",
+        "PASTE voice_path HERE",
+        "off",
+        "auto",
+        "_voice",
+        "embedded (video)",
+        "",
+        0,
+        0.5,
+        -35.0,
+        0.2,
+        0.08,
+        "HH.MM.SS.mmm",
+        "",
+        "skip existing"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "Note",
+      "pos": [700, 180],
+      "size": [360, 220],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "title": "Clean-voice dataset (2 steps)",
+      "text": "Step 1: set media_path + video_path, queue. The separator writes the whole-track clean-voice stem <name>_voice.flac (htdemucs_ft default - cleaner vocals, less echo).\n\nStep 2: copy the printed voice_path into the slicer's audio_path widget and queue again. The txt+flac pairs are then cut from the CLEAN VOICE stem while subtitles still come from the original video.\n\nShortcut: the slicer can also separate internally - set its separation_model to htdemucs_ft or htdemucs (and audio_path empty) and every cue yields <timestamp>_voice.flac in ONE run.\n\nBackground stems were removed in v1.4.0 (dub merges drift when a second stem is involved).",
+      "properties": {},
+      "widgets_values": []
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

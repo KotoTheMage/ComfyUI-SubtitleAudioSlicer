@@ -1,0 +1,57 @@
+{
+  "last_node_id": 2,
+  "last_link_id": 1,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "SubtitleAudioSlicer",
+      "pos": [240, 200],
+      "size": [460, 420],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "output_folder", "type": "STRING", "links": null },
+        { "name": "segment_list", "type": "STRING", "links": null },
+        { "name": "segment_count", "type": "INT", "links": null }
+      ],
+      "properties": { "Node name for S&R": "SubtitleAudioSlicer" },
+      "widgets_values": [
+        "C:/videos/lecture.mp4",
+        "",
+        "htdemucs",
+        "auto",
+        "_voice",
+        "embedded (video)",
+        "",
+        0,
+        0.5,
+        -35.0,
+        0.2,
+        0.08,
+        "HH.MM.SS.mmm",
+        "",
+        "skip existing"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "Note",
+      "pos": [760, 200],
+      "size": [360, 200],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "title": "How to use",
+      "text": "1. Set video_path to your .webm / .mp4 / .mkv.\n2. Pick the subtitle source (embedded track or sidecar .srt/.vtt).\n3. separation_model 'htdemucs_ft' (cleanest voice) or 'htdemucs' (faster) saves the clean-voice file <timestamp>_voice.flac plus the shared <timestamp>.txt per subtitle. Set it to 'off' for a single mixed <timestamp>.flac (or if demucs is not installed).\n4. Queue - files land in ComfyUI/output/subtitle_audio_slices/<video name>.\n5. segment_list shows one line per cut: <name>_voice.flac | start - end | text.\n\nSeparation needs `pip install demucs` in the ComfyUI python env. Background stems were removed in v1.4.0 (dub merges drift when a second stem is involved).",
+      "properties": {},
+      "widgets_values": []
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

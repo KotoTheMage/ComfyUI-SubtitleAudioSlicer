@@ -1,0 +1,5 @@
+# SubtitleAudioSlicer itself needs NO pip packages (only ffmpeg on PATH).
+#
+# VoiceBackgroundSeparator additionally needs demucs (torch/torchaudio are
+# already provided by ComfyUI). Install inside the ComfyUI python environment:
+demucs>=4.0.0
