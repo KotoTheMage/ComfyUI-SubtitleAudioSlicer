@@ -11,7 +11,7 @@ Two ComfyUI custom nodes for turning subtitled video into training-ready audio:
    placeholders.
 2. **Voice Separator (Demucs)** — extracts the whole track's clean **voice**
    stem (`<name>_voice.flac`) using Meta's Demucs.
-
+3. Use https://github.com/KotoTheMage/ComfyUI-AudioTextLoader.git node to load the phrases + text line with buttons next and previous.
 > **v1.6.0 — no subtitles? phrase split.** New `subtitle_source` option
 > **`phrase split (no subtitles)`**: the node detects speech phrases on the
 > track (on the Demucs voice stem when separation is on, or on `audio_path`),
